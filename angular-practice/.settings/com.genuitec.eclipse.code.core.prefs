@@ -1,3 +1,0 @@
-eclipse.preferences.version=1
-excludePatterns.additions=vendor/**src/karma.conf.js,
-excludePatterns.removals=vendor/**,
