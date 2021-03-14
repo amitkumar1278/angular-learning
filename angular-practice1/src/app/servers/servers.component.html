@@ -17,6 +17,10 @@
 
 <!-- <p>{{ allowNewSErver }}</p>
 <p [innerText] = "allowNewSErver"></p> -->
-<p>{{ serverCReationStatus }}</p>
-<app-server></app-server>
-<app-server></app-server>
+<!-- <p>{{ serverCReationStatus }}</p> -->
+<p *ngIf="serverCreated; else noServer">Server was created, Server name is {{serverName}}</p>
+<ng-template #noServer>
+    <p>No Server was created!</p>
+</ng-template>
+
+<app-server *ngFor="let server of servers"></app-server>

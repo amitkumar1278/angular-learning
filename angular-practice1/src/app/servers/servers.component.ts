@@ -15,6 +15,8 @@ export class ServersComponent implements OnInit {
   allowNewSErver = false;
   serverCReationStatus = 'No Serevr was Created!';
   serverName = 'Testserver';
+  serverCreated = false;
+  servers = ['TestServer', 'TestServer 2'];
 
   constructor() {
     setTimeout(() => {
@@ -25,8 +27,9 @@ export class ServersComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // tslint:disable-next-line: typedef
   onCreateServer() {
+    this.serverCreated =  true;
+    this.servers.push(this.serverName);
     this.serverCReationStatus = 'Server was Created! Name is ' + this.serverName;
   }
 
