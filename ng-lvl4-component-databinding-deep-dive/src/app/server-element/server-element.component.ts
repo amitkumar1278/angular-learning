@@ -1,7 +1,19 @@
 import {
-  Component, OnInit, Input, ViewEncapsulation,
-  OnChanges, DoCheck, AfterContentInit, AfterContentChecked,
-  AfterViewInit, AfterViewChecked, OnDestroy, ViewChild, ElementRef, SimpleChanges
+  Component,
+  OnInit,
+  Input,
+  ViewEncapsulation,
+  OnChanges,
+  SimpleChanges,
+  DoCheck,
+  AfterContentInit,
+  AfterContentChecked,
+  AfterViewInit,
+  AfterViewChecked,
+  OnDestroy,
+  ViewChild,
+  ElementRef,
+  ContentChild
 } from '@angular/core';
 
 // tslint:disable-next-line: no-conflicting-lifecycle
@@ -23,37 +35,51 @@ export class ServerElementComponent implements
 
   @Input('srvElement') element: { type: string, name: string, content: string };
   @Input() name: string;
-  @ViewChild() header: ElementRef;
 
-  constructor() { }
+  @ViewChild('heading', { static:true }) header: ElementRef;
+  @ContentChild('contentParagraph', { static:true }) paragraph: ElementRef;
 
-  ngOnDestroy(): void {
-    console.log('Method not implemented.');
+  constructor() {
+    console.log('Constructor called!');
   }
-  ngAfterViewChecked(): void {
-    console.log('Method not implemented.');
-  }
-  ngAfterViewInit(): void {
-    console.log('Method not implemented.');
-    console.log('Text Content : ' + this.header.nativeElement.textContent);
-  }
-  ngAfterContentChecked(): void {
-    console.log('Method not implemented.');
-  }
-  ngAfterContentInit(): void {
-    console.log('Method not implemented.');
-  }
-  ngDoCheck(): void {
-    console.log('Method not implemented.');
-  }
+
   ngOnChanges(changes: SimpleChanges): void {
-    console.log('Method not implemented.')
+    console.log('ngOnChanges called!')
     console.log(changes);
   }
 
   ngOnInit(): void {
     console.log('ngOnInit called!');
     console.log('Text Content : ' + this.header.nativeElement.textContent);
+    console.log('Text Content of paragraph:' + this.paragraph.nativeElement.textContent);
   }
+
+  ngDoCheck(): void {
+    console.log('ngDoCheck called!');
+  }
+
+  ngAfterContentInit(): void {
+    console.log('ngAfterContentInit called!');
+    console.log('Text Content of paragraph:' + this.paragraph.nativeElement.textContent);
+
+  }
+
+  ngAfterContentChecked(): void {
+    console.log('ngAfterContentChecked called!');
+  }
+
+  ngAfterViewInit(): void {
+    console.log('ngAfterViewInit called!');
+    console.log('Text Content : ' + this.header.nativeElement.textContent);
+  }
+
+  ngAfterViewChecked(): void {
+    console.log('ngAfterViewChecked called!');
+  }
+
+  ngOnDestroy(): void {
+    console.log('ngOnDestroy called!');
+  }
+
 
 }
