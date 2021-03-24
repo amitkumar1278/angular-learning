@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ng-lvl4-asst-game-ctrl';
+
+  onintervalFired(firedNUmber: number) {
+    console.log(firedNUmber);
+  }
 }
