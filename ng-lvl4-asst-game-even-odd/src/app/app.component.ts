@@ -8,7 +8,17 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'ng-lvl4-asst-game-ctrl';
 
+  oddNumbers: number[] = [];
+  evenNumbers: number[] = [];
+
   onintervalFired(firedNUmber: number) {
-    console.log(firedNUmber);
+
+    if (firedNUmber % 2 == 0) {
+      this.evenNumbers.push(firedNUmber);
+    } else {
+      this.oddNumbers.push(firedNUmber);
+    }
   }
+
+  
 }
