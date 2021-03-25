@@ -1,11 +1,6 @@
 <!-- <nav class="navbar navbar-default"> -->
 <nav class="navbar navbar-expand-md navbar-light bg-light">
     <div class="container-fluid">
-
-        <!-- <div class="navbar-header">
-            <a href="#" class="navbar-brand">Recipe Book</a>
-        </div> -->
-
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" (click)="collapsed = !collapsed">
                 <span class="icon-bar" *ngFor="let iconBar of [1, 2, 3]"></span>
@@ -16,8 +11,10 @@
         <!-- <div class="collapse navbar-collapse" id="navbarCollapse"> -->
         <div class="navbar-collapse" [class.collapse]="collapsed" (window:resize)="collapsed = true">    
             <ul class="navbar-nav">
-                <li><a href="#" class="nav-item nav-link active">Recipes</a></li>
-                <li><a href="#" class="nav-item nav-link">Shopping List</a></li>
+                <li><a href="#" class="nav-item nav-link active" 
+                    (click)="onSelect('recipe')">Recipes</a></li>
+                <li><a href="#" class="nav-item nav-link" 
+                     (click)="onSelect('shopping-list')">Shopping List</a></li>
             </ul>
 
             <ul class="navbar-nav ml-auto navbar-right">
