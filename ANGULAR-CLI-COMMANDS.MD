@@ -28,6 +28,10 @@ $ ng new my-first-app
 
 path of bootstrap file:  	bootstrap/dist/css/bootstrap.min.css
  
+### to install http
+	
+	$ npm install @angular/http@latest
+
 ### above command will download and store in node_modules folder
  
  	$ npm fund
