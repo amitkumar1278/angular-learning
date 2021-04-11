@@ -74,8 +74,39 @@ ng serve
  
  
 =================================================================
+# getting error while installing or creating new application:
 
- 
+$ npm cache clean --force
+
+$ npm clean-install
+
+$ npm i --no-package-lock
+
+$ npm install --package-lock-only
+
+
+
+# installed it by excluding package-lock.json using below command
+
+npm i --save @angular/cdk --no-package-lock
+
+# It looks like it is a cache error. Try this:
+
+npm cache clean --force
+npm install -g @angular/cli
+
+============
+error
+npm WARN deprecated har-validator@5.1.5: this library is no longer supported
+npm WARN deprecated request@2.88.2: request has been deprecated, see https://github.com/request/request/issues/3142
+npm WARN deprecated urix@0.1.0: Please see https://github.com/lydell/urix#deprecated
+npm WARN deprecated resolve-url@0.2.1: https://github.com/lydell/resolve-url#deprecated
+npm WARN deprecated chokidar@2.1.8: Chokidar 2 will break on node v14+. Upgrade to chokidar 3 with 15x less dependencies.
+npm WARN deprecated chokidar@2.1.8: Chokidar 2 will break on node v14+. Upgrade to chokidar 3 with 15x less dependencies.
+npm WARN deprecated tslint@6.1.3: TSLint has been deprecated in favor of ESLint. Please see https://github.com/palantir/tslint/issues/4534 for more information.
+
+
+
  
  
  
