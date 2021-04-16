@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from "./auth-guard.service";
 
 import { HomeComponent } from "./home/home.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
@@ -12,13 +13,17 @@ import { UsersComponent } from "./users/users.component";
 const appRoutes: Routes = [
 	{ path: '', component: HomeComponent },
 	{
-		path: 'users', component: UsersComponent,
+		path: 'users',
+		component: UsersComponent,
 		children: [
 			{ path: ':id/:name', component: UserComponent }
 		]
 	},
 	{
-		path: 'servers', component: ServersComponent,
+		path: 'servers',
+		//canActivate: [AuthGuard],
+		canActivateChild: [AuthGuard],
+		component: ServersComponent,
 		children: [
 			{ path: ':id', component: ServerComponent },
 			{ path: ':id/edit', component: EditServerComponent }
@@ -29,10 +34,10 @@ const appRoutes: Routes = [
 ];
 
 @NgModule({
-	imports:[
+	imports: [
 		RouterModule.forRoot(appRoutes)
 	],
-	exports:[RouterModule]
+	exports: [RouterModule]
 })
 export class AppRoutingModule {
 
