@@ -1,0 +1,7 @@
+
+@NgModule({
+
+})
+export class AppRoutingModule {
+
+}
